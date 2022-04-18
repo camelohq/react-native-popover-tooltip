@@ -389,7 +389,7 @@ class PopoverTooltip extends React.PureComponent<Props, State> {
         this.props.timingConfig && this.props.timingConfig.duration
           ? this.props.timingConfig.duration
           : 200,
-      useNativeDriver: true,
+      useNativeDriver: false,
     });
     if (this.props.animationType == "spring") {
       tooltipAnimation = Animated.spring(this.state.tooltipContainerScale, {
@@ -402,7 +402,7 @@ class PopoverTooltip extends React.PureComponent<Props, State> {
           this.props.springConfig && this.props.springConfig.friction
             ? this.props.springConfig.friction
             : 7,
-        useNativeDriver: true,
+        useNativeDriver: false,
       });
     }
     Animated.parallel([
@@ -412,7 +412,7 @@ class PopoverTooltip extends React.PureComponent<Props, State> {
         duration: this.props.opacityChangeDuration
           ? this.props.opacityChangeDuration
           : 200,
-        useNativeDriver: true,
+        useNativeDriver: false,
       }),
     ]).start();
   };
@@ -424,14 +424,14 @@ class PopoverTooltip extends React.PureComponent<Props, State> {
         duration: this.props.opacityChangeDuration
           ? this.props.opacityChangeDuration
           : 200,
-        useNativeDriver: true,
+        useNativeDriver: false,
       }),
       Animated.timing(this.state.opacity, {
         toValue: 0,
         duration: this.props.opacityChangeDuration
           ? this.props.opacityChangeDuration
           : 200,
-        useNativeDriver: true,
+        useNativeDriver: false,
       }),
     ]).start(this.toggleModal);
   }
