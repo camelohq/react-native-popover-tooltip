@@ -27,7 +27,8 @@
   },
   "peerDependencies": {
     "react": "*",
-    "react-native": "*"
+    "react-native": "*",
+    "react-native-haptic-feedback": "*"
   },
   "devDependencies": {
     "react": "^16.0.0",

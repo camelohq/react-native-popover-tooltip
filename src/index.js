@@ -16,6 +16,7 @@ import {
 } from "react-native";
 import PropTypes from "prop-types";
 import invariant from "invariant";
+import ReactNativeHapticFeedback from "react-native-haptic-feedback";
 
 import PopoverTooltipItem, {
   type Label,
@@ -296,7 +297,10 @@ class PopoverTooltip extends React.PureComponent<Props, State> {
         ref={this.wrapperRef}
         style={this.props.componentWrapperStyle}
         onPress={this.props.onPress}
-        onLongPress={this.toggle}
+        onLongPress={() => {
+          this.toggle();
+          ReactNativeHapticFeedback.trigger("longPress");
+        }}
         delayLongPress={this.props.delayLongPress}
         activeOpacity={1.0}
       >
