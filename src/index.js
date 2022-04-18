@@ -306,7 +306,8 @@ class PopoverTooltip extends React.PureComponent<Props, State> {
       >
         <Animated.View
           style={[
-            // { opacity: this.state.oppositeOpacity },
+            // https://github.com/wookoinc/react-native-popover-tooltip/issues/30#issuecomment-462241267
+            { opacity: this.state.buttonComponentOpacity },
             this.props.componentContainerStyle,
           ]}
         >
