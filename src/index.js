@@ -299,7 +299,10 @@ class PopoverTooltip extends React.PureComponent<Props, State> {
         onPress={this.props.onPress}
         onLongPress={() => {
           this.toggle();
-          ReactNativeHapticFeedback.trigger("longPress");
+          ReactNativeHapticFeedback.trigger("impactLight", {
+            enableVibrateFallback: true,
+            ignoreAndroidSystemSettings: true,
+          });
         }}
         delayLongPress={this.props.delayLongPress}
         activeOpacity={1.0}
