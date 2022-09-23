@@ -13,6 +13,8 @@ import {
   Text,
   Easing,
   ViewPropTypes,
+  Platform,
+  StatusBar,
 } from "react-native";
 import PropTypes from "prop-types";
 import invariant from "invariant";
@@ -362,7 +364,12 @@ class PopoverTooltip extends React.PureComponent<Props, State> {
             style={{
               position: "absolute",
               left: this.state.x,
-              top: this.state.y,
+              top:
+                this.state.y -
+                Platform.select({
+                  android: StatusBar.currentHeight,
+                  default: 0,
+                }),
               width: this.state.width,
               height: this.state.height,
               backgroundColor: "transparent",
